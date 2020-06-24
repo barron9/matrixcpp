@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		84697C5A24A3697E00077390 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84697C5924A3697E00077390 /* main.cpp */; };
+		84697C6324A3CFD400077390 /* liblapack.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84697C6124A3CF9A00077390 /* liblapack.tbd */; };
+		84697C6524A3D33C00077390 /* libblas.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84697C6424A3D33300077390 /* libblas.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		84697C5624A3697E00077390 /* dsjadk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dsjadk; sourceTree = BUILT_PRODUCTS_DIR; };
 		84697C5924A3697E00077390 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		84697C6124A3CF9A00077390 /* liblapack.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = liblapack.tbd; path = usr/lib/liblapack.tbd; sourceTree = SDKROOT; };
+		84697C6424A3D33300077390 /* libblas.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libblas.tbd; path = usr/lib/libblas.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84697C6524A3D33C00077390 /* libblas.tbd in Frameworks */,
+				84697C6324A3CFD400077390 /* liblapack.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +49,7 @@
 			children = (
 				84697C5824A3697E00077390 /* dsjadk */,
 				84697C5724A3697E00077390 /* Products */,
+				84697C6024A3CF9A00077390 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +67,15 @@
 				84697C5924A3697E00077390 /* main.cpp */,
 			);
 			path = dsjadk;
+			sourceTree = "<group>";
+		};
+		84697C6024A3CF9A00077390 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84697C6424A3D33300077390 /* libblas.tbd */,
+				84697C6124A3CF9A00077390 /* liblapack.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +257,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z44W488BLR;
 				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-I/Users/berkintatlisu/Downloads/armadillo-9.900.1/include",
+					"-DARMA_DONT_USE_WRAPPER",
+					"-lblas",
+					"-llapack",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -251,6 +274,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z44W488BLR;
 				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-I/Users/berkintatlisu/Downloads/armadillo-9.900.1/include",
+					"-DARMA_DONT_USE_WRAPPER",
+					"-lblas",
+					"-llapack",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
